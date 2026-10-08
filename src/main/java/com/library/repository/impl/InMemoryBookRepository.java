@@ -11,8 +11,9 @@ public class InMemoryBookRepository implements BookRepository {
     private final Map<String, Book> storage = new ConcurrentHashMap<>();
 
     @Override
-    public void save(Book book) {
+    public Book save(Book book) {
         storage.put(book.getIsbn(), book);
+        return book;
     }
 
     @Override
